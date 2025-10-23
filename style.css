@@ -1,0 +1,123 @@
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #222;
+  background: #fff;
+}
+
+header {
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.logo span {
+  color: #0072ff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+}
+.nav-links a.active, .nav-links a:hover {
+  color: #0072ff;
+}
+
+.hero {
+  text-align: center;
+  padding: 6rem 2rem;
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+  color: white;
+}
+.hero .btn {
+  background: white;
+  color: #0072ff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.info {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+.card {
+  background: #f7f7f7;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 300px;
+}
+
+.prices, .about, .contact {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.price-card {
+  background: #f7f7f7;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 1rem auto;
+  max-width: 400px;
+}
+.price {
+  font-size: 2rem;
+  color: #0072ff;
+  font-weight: bold;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 2rem auto;
+  gap: 1rem;
+}
+.contact-form input, .contact-form textarea {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.btn {
+  background: #0072ff;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn:hover {
+  background: #005fcc;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #fafafa;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+}
