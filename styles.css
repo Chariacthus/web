@@ -181,6 +181,28 @@ a:focus {
   margin-bottom: 2rem;
 }
 
+.hero-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2.2rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.hero-benefits li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.7rem 1.15rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-100);
+  background-color: var(--white);
+  color: var(--gray-600);
+  font-weight: 500;
+  box-shadow: var(--shadow-soft);
+  width: 100%;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -302,6 +324,35 @@ a:focus {
 .feature-card p {
   margin: 0;
   color: var(--gray-500);
+}
+
+.included {
+  background-color: var(--white);
+  border-top: 1px solid var(--gray-100);
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.included-list,
+.cta-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 1.75rem 0 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.included-list li,
+.cta-checklist li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--gray-600);
+  font-weight: 500;
+}
+
+.included-list li span,
+.cta-checklist li span {
+  font-size: 1.1rem;
 }
 
 .process {
