@@ -1,50 +1,100 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DinWeb – Professionelle hjemmesider til små virksomheder</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NetPartner – Professionelle hjemmesider til små virksomheder</title>
+  <meta name="description" content="NetPartner laver moderne, hurtige hjemmesider til små danske virksomheder. Fast pris 1.250 kr. og vedligeholdelse 250 kr./md."/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="logo">Din<span>Web</span></div>
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="index.html" class="logo" aria-label="NetPartner forside">Net<span>Partner</span></a>
+      <input id="nav-toggle" type="checkbox" aria-label="Åbn menu">
+      <label for="nav-toggle" class="hamburger" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </label>
       <ul class="nav-links">
-        <li><a href="index.html" class="active">Forside</a></li>
+        <li><a class="active" href="index.html">Forside</a></li>
         <li><a href="priser.html">Priser</a></li>
         <li><a href="om.html">Om os</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a class="btn btn-primary" href="kontakt.html">Kontakt</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="hero">
-    <h1>Vi laver professionelle hjemmesider til små virksomheder</h1>
-    <p>Få en moderne og hurtig hjemmeside – klar til at tiltrække kunder.</p>
-    <a href="priser.html" class="btn">Se priser</a>
-  </section>
+  <main>
+    <section class="hero container">
+      <div class="hero-content">
+        <h1>Hjemmesider der får kunderne til at skrive</h1>
+        <p>NetPartner bygger hurtige, professionelle websites til små danske virksomheder. Fast pris – ingen bøvl.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="priser.html">Se priser</a>
+          <a class="btn btn-ghost" href="kontakt.html">Start dit projekt</a>
+        </div>
+        <p class="hero-note">Fra <strong>1.250 kr.</strong> · Vedligehold <strong>250 kr./md.</strong></p>
+      </div>
+      <div class="hero-card">
+        <ul>
+          <li>✅ Mobilvenligt & lynhurtigt</li>
+          <li>✅ Dansk support</li>
+          <li>✅ Klar til Google</li>
+          <li>✅ Gratis SSL (https)</li>
+        </ul>
+      </div>
+    </section>
 
-  <section class="info">
-    <h2>Hvorfor vælge os?</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Billig løsning</h3>
-        <p>Få en professionel hjemmeside for kun <strong>1.250 kr</strong>.</p>
+    <section class="features container">
+      <h2>Hvorfor vælge NetPartner?</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Gennemsigtig pris</h3>
+          <p>Engangsbetaling <strong>1.250 kr.</strong> for en komplet hjemmeside – klar til brug.</p>
+        </article>
+        <article class="card">
+          <h3>Tryg drift</h3>
+          <p><strong>250 kr./md.</strong> for hosting, opdateringer og små ændringer.</p>
+        </article>
+        <article class="card">
+          <h3>Hurtig levering</h3>
+          <p>Vi leverer skarpt design og ren kode – som konverterer.</p>
+        </article>
       </div>
-      <div class="card">
-        <h3>Vedligeholdelse</h3>
-        <p>Vi holder din side opdateret for <strong>250 kr/md</strong>.</p>
+    </section>
+
+    <section class="cta container">
+      <div class="cta-inner">
+        <h2>Klar til en professionel hjemmeside?</h2>
+        <p>Fortæl kort om din virksomhed, så vender vi tilbage med et konkret oplæg.</p>
+        <a class="btn btn-primary" href="kontakt.html">Kontakt NetPartner</a>
       </div>
-      <div class="card">
-        <h3>Klar på få dage</h3>
-        <p>Vi leverer din hjemmeside hurtigt og færdig – uden bøvl.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="logo" href="index.html">Net<span>Partner</span></a>
+        <p class="muted">Professionelle hjemmesider til små danske virksomheder.</p>
+      </div>
+      <nav>
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Forside</a></li>
+          <li><a href="priser.html">Priser</a></li>
+          <li><a href="om.html">Om os</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h4>Priser</h4>
+        <p>Hjemmeside: <strong>1.250 kr.</strong><br/>Vedligehold: <strong>250 kr./md.</strong></p>
       </div>
     </div>
-  </section>
-
-  <footer>
-    <p>© 2025 DinWeb — Professionelle hjemmesider i Danmark</p>
+    <p class="copyright">© 2025 NetPartner — Alle rettigheder forbeholdes.</p>
   </footer>
 </body>
 </html>
