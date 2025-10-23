@@ -1,100 +1,150 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NetPartner – Professionelle hjemmesider til små virksomheder</title>
-  <meta name="description" content="NetPartner laver moderne, hurtige hjemmesider til små danske virksomheder. Fast pris 1.250 kr. og vedligeholdelse 250 kr./md."/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="description" content="NetPartner udvikler moderne, hurtige hjemmesider til små danske virksomheder. Fast pris, dansk service.">
+  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <header class="site-header">
-    <nav class="navbar container">
-      <a href="index.html" class="logo" aria-label="NetPartner forside">Net<span>Partner</span></a>
-      <input id="nav-toggle" type="checkbox" aria-label="Åbn menu">
-      <label for="nav-toggle" class="hamburger" aria-hidden="true">
+  <header class="navbar">
+    <div class="container nav-content">
+      <a href="#" class="logo">Net<span>Partner</span></a>
+      <nav class="nav-links" id="navMenu">
+        <a href="#home">Forside</a>
+        <a href="#cases">Hjemmesider</a>
+        <a href="#reviews">Anmeldelser</a>
+        <a href="#contact" class="btn-primary">Kontakt</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Åbn menu">
         <span></span><span></span><span></span>
-      </label>
-      <ul class="nav-links">
-        <li><a class="active" href="index.html">Forside</a></li>
-        <li><a href="priser.html">Priser</a></li>
-        <li><a href="om.html">Om os</a></li>
-        <li><a class="btn btn-primary" href="kontakt.html">Kontakt</a></li>
-      </ul>
-    </nav>
+      </button>
+    </div>
   </header>
 
   <main>
-    <section class="hero container">
-      <div class="hero-content">
-        <h1>Hjemmesider der får kunderne til at skrive</h1>
-        <p>NetPartner bygger hurtige, professionelle websites til små danske virksomheder. Fast pris – ingen bøvl.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="priser.html">Se priser</a>
-          <a class="btn btn-ghost" href="kontakt.html">Start dit projekt</a>
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1>Professionelle hjemmesider til små virksomheder</h1>
+          <p>Hos NetPartner får du en moderne, dansk hjemmeside – designet til at give tillid og skabe kunder.</p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn-primary">Få et tilbud</a>
+            <a href="#cases" class="btn-outline">Se eksempler</a>
+          </div>
         </div>
-        <p class="hero-note">Fra <strong>1.250 kr.</strong> · Vedligehold <strong>250 kr./md.</strong></p>
-      </div>
-      <div class="hero-card">
-        <ul>
-          <li>✅ Mobilvenligt & lynhurtigt</li>
-          <li>✅ Dansk support</li>
-          <li>✅ Klar til Google</li>
-          <li>✅ Gratis SSL (https)</li>
-        </ul>
+        <div class="hero-img">
+          <img src="https://via.placeholder.com/500x350" alt="Eksempel på hjemmeside" loading="lazy">
+        </div>
       </div>
     </section>
 
-    <section class="features container">
-      <h2>Hvorfor vælge NetPartner?</h2>
-      <div class="grid-3">
-        <article class="card">
-          <h3>Gennemsigtig pris</h3>
-          <p>Engangsbetaling <strong>1.250 kr.</strong> for en komplet hjemmeside – klar til brug.</p>
-        </article>
-        <article class="card">
-          <h3>Tryg drift</h3>
-          <p><strong>250 kr./md.</strong> for hosting, opdateringer og små ændringer.</p>
-        </article>
-        <article class="card">
-          <h3>Hurtig levering</h3>
-          <p>Vi leverer skarpt design og ren kode – som konverterer.</p>
-        </article>
+    <!-- About -->
+    <section class="about">
+      <div class="container fade-in">
+        <h2>Hvorfor vælge NetPartner?</h2>
+        <p>Vi hjælper små danske virksomheder med at få en flot, hurtig og troværdig hjemmeside – uden teknisk bøvl og til en fast pris.</p>
+        <div class="features">
+          <div class="feature-card">
+            <h3>Fast lav pris</h3>
+            <p>Komplet hjemmeside for <strong>1.250 kr</strong>. Vedligeholdelse <strong>250 kr/md.</strong></p>
+          </div>
+          <div class="feature-card">
+            <h3>Dansk kvalitet</h3>
+            <p>Designet, skrevet og hostet i Danmark. Hurtig support og klar kommunikation.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Hurtig levering</h3>
+            <p>Din side står typisk klar inden for få dage – klar til at modtage kunder.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="cta container">
-      <div class="cta-inner">
-        <h2>Klar til en professionel hjemmeside?</h2>
-        <p>Fortæl kort om din virksomhed, så vender vi tilbage med et konkret oplæg.</p>
-        <a class="btn btn-primary" href="kontakt.html">Kontakt NetPartner</a>
+    <!-- Cases -->
+    <section id="cases" class="cases fade-in">
+      <div class="container">
+        <h2>Hjemmesider vi har lavet</h2>
+        <p class="sub">Her er nogle eksempler – udskift selv billeder og tekster med dine egne cases.</p>
+        <div class="case-grid">
+          <div class="case-card">
+            <img src="https://via.placeholder.com/600x400" alt="Case 1">
+            <h3>Virksomhed 1</h3>
+            <p>Kort beskrivelse af projektet. F.eks. webshop, håndværker, café osv.</p>
+          </div>
+          <div class="case-card">
+            <img src="https://via.placeholder.com/600x400" alt="Case 2">
+            <h3>Virksomhed 2</h3>
+            <p>Kort beskrivelse af projektet og resultatet.</p>
+          </div>
+          <div class="case-card">
+            <img src="https://via.placeholder.com/600x400" alt="Case 3">
+            <h3>Virksomhed 3</h3>
+            <p>Kort tekst, du kan skifte ud med en ægte kunde.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" class="reviews fade-in">
+      <div class="container">
+        <h2>Hvad siger vores kunder?</h2>
+        <div class="review-grid">
+          <div class="review-card">
+            <p>“Super flot hjemmeside til vores lille butik. Hurtig levering og god kommunikation!”</p>
+            <span>– Lene fra Butik Nord</span>
+          </div>
+          <div class="review-card">
+            <p>“Vi fik en professionel side for en brøkdel af prisen vi fik andre steder. Kan klart anbefales.”</p>
+            <span>– Thomas, Malermester Hansen</span>
+          </div>
+          <div class="review-card">
+            <p>“NetPartner gjorde det nemt for os at komme online. Alt fungerer perfekt.”</p>
+            <span>– Katrine, Kaffehjørnet</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact fade-in">
+      <div class="container">
+        <h2>Kontakt os</h2>
+        <p>Fortæl os kort om din virksomhed, så sender vi et uforpligtende tilbud.</p>
+        <form class="contact-form" action="#" method="post">
+          <div class="form-grid">
+            <input type="text" name="name" placeholder="Navn" required>
+            <input type="email" name="email" placeholder="E-mail" required>
+          </div>
+          <textarea name="message" placeholder="Din besked" required></textarea>
+          <button type="submit" class="btn-primary">Send besked</button>
+        </form>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
+  <footer class="footer">
+    <div class="container footer-inner">
       <div>
-        <a class="logo" href="index.html">Net<span>Partner</span></a>
-        <p class="muted">Professionelle hjemmesider til små danske virksomheder.</p>
+        <a href="#" class="logo">Net<span>Partner</span></a>
+        <p>Professionelle hjemmesider til små danske virksomheder.</p>
       </div>
-      <nav>
-        <h4>Navigation</h4>
-        <ul class="footer-links">
-          <li><a href="index.html">Forside</a></li>
-          <li><a href="priser.html">Priser</a></li>
-          <li><a href="om.html">Om os</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
-      </nav>
+      <div>
+        <h4>Kontakt</h4>
+        <p>info@netpartner.dk<br>+45 00 00 00 00</p>
+      </div>
       <div>
         <h4>Priser</h4>
-        <p>Hjemmeside: <strong>1.250 kr.</strong><br/>Vedligehold: <strong>250 kr./md.</strong></p>
+        <p>Hjemmeside: <strong>1.250 kr.</strong><br>Vedligehold: <strong>250 kr/md.</strong></p>
       </div>
     </div>
-    <p class="copyright">© 2025 NetPartner — Alle rettigheder forbeholdes.</p>
+    <p class="copy">© 2025 NetPartner – Alle rettigheder forbeholdes.</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
