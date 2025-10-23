@@ -1,84 +1,95 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Priser – NetPartner</title>
-  <meta name="description" content="Priser hos NetPartner: Hjemmeside 1.250 kr. – Vedligehold 250 kr./md."/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="description" content="NetPartner tilbyder komplette hjemmesider til 1.350 kr og vedligeholdelse for 250 kr/md.">
+  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <header class="site-header">
-    <nav class="navbar container">
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-content">
       <a href="index.html" class="logo">Net<span>Partner</span></a>
-      <input id="nav-toggle" type="checkbox" aria-label="Åbn menu">
-      <label for="nav-toggle" class="hamburger"><span></span><span></span><span></span></label>
-      <ul class="nav-links">
-        <li><a href="index.html">Forside</a></li>
-        <li><a class="active" href="priser.html">Priser</a></li>
-        <li><a href="om.html">Om os</a></li>
-        <li><a class="btn btn-primary" href="kontakt.html">Kontakt</a></li>
-      </ul>
-    </nav>
+      <nav class="nav-links" id="navMenu">
+        <a href="index.html">Forside</a>
+        <a href="index.html#cases">Hjemmesider</a>
+        <a href="index.html#reviews">Anmeldelser</a>
+        <a href="priser.html" class="active">Priser</a>
+        <a href="index.html#contact" class="btn-primary">Kontakt</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Åbn menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </header>
 
-  <main class="container section-pad">
-    <header class="page-header">
-      <h1>Enkel og gennemsigtig pris</h1>
-      <p>Start enkelt – skaler når du har lyst.</p>
-    </header>
+  <!-- Main -->
+  <main class="pricing-page">
+    <section class="hero" style="padding-top:120px;">
+      <div class="container">
+        <h1>Enkel og gennemsigtig pris</h1>
+        <p class="sub">Hos NetPartner tror vi på ærlig og klar prissætning – ingen skjulte gebyrer.</p>
+      </div>
+    </section>
 
-    <div class="pricing">
-      <article class="price-card">
-        <h2>Hjemmeside</h2>
-        <p class="price">1.250 kr.</p>
-        <ul class="bullets">
-          <li>Design & opsætning</li>
-          <li>Mobilvenligt layout</li>
-          <li>Kontaktformular</li>
-          <li>On-page SEO basics</li>
-        </ul>
-        <a class="btn btn-primary" href="kontakt.html">Bestil nu</a>
-      </article>
+    <section class="price-section fade-in">
+      <div class="container price-grid">
+        <div class="price-card">
+          <h2>Komplet hjemmeside</h2>
+          <p class="price-tag">1.350 kr</p>
+          <ul>
+            <li>✔ Professionelt design</li>
+            <li>✔ Mobilvenligt layout</li>
+            <li>✔ SEO-optimeret struktur</li>
+            <li>✔ Kontaktformular</li>
+          </ul>
+          <a href="index.html#contact" class="btn-primary">Bestil hjemmeside</a>
+        </div>
 
-      <article class="price-card">
-        <h2>Vedligeholdelse</h2>
-        <p class="price">250 kr./md.</p>
-        <ul class="bullets">
-          <li>Hosting & SSL</li>
-          <li>Opdateringer</li>
-          <li>Backup</li>
-          <li>Små ændringer</li>
-        </ul>
-        <a class="btn btn-ghost" href="kontakt.html">Kom i gang</a>
-      </article>
-    </div>
+        <div class="price-card">
+          <h2>Vedligeholdelse</h2>
+          <p class="price-tag">250 kr/md.</p>
+          <ul>
+            <li>✔ Hosting & SSL-certifikat</li>
+            <li>✔ Opdateringer og backup</li>
+            <li>✔ Små tekstændringer</li>
+            <li>✔ Dansk support</li>
+          </ul>
+          <a href="index.html#contact" class="btn-outline">Kontakt os</a>
+        </div>
+      </div>
+    </section>
 
-    <div class="note">
-      <p>Alle priser er i DKK inkl. moms, med mindre andet er angivet.</p>
-    </div>
+    <section class="note fade-in">
+      <div class="container">
+        <p>Alle priser er i DKK inkl. moms.<br>
+        Betaling sker først, når du har godkendt din hjemmeside.</p>
+      </div>
+    </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div><a class="logo" href="index.html">Net<span>Partner</span></a></div>
-      <nav>
-        <h4>Navigation</h4>
-        <ul class="footer-links">
-          <li><a href="index.html">Forside</a></li>
-          <li><a class="active" href="priser.html">Priser</a></li>
-          <li><a href="om.html">Om os</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
-      </nav>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <a href="index.html" class="logo">Net<span>Partner</span></a>
+        <p>Professionelle hjemmesider til små danske virksomheder.</p>
+      </div>
       <div>
         <h4>Kontakt</h4>
-        <p>Skriv til os via kontaktformularen.</p>
+        <p>info@netpartner.dk<br>+45 00 00 00 00</p>
+      </div>
+      <div>
+        <h4>Priser</h4>
+        <p>Hjemmeside: <strong>1.350 kr</strong><br>Vedligehold: <strong>250 kr/md.</strong></p>
       </div>
     </div>
-    <p class="copyright">© 2025 NetPartner</p>
+    <p class="copy">© 2025 NetPartner – Alle rettigheder forbeholdes.</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
