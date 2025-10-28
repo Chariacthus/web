@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload · Code Commons</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body data-page="upload">
+    <div id="command-palette" class="command-palette" aria-hidden="true">
+      <div class="command-palette__dialog" role="dialog" aria-modal="true">
+        <header>
+          <h2>Command Palette</h2>
+          <p>Search across scripts, creators, and pages</p>
+        </header>
+        <input type="text" placeholder="Type a command or search…" />
+        <ul class="command-palette__results"></ul>
+        <button class="command-palette__close" aria-label="Close command palette">
+          Close
+        </button>
+      </div>
+    </div>
+
+    <main id="app" class="app">
+      <div class="particle-field" aria-hidden="true"></div>
+      <section class="upload" id="upload">
+        <div class="section-heading">
+          <h2>Upload · Create &amp; Publish</h2>
+          <p>Studio-grade tools for shipping trustworthy Lua scripts.</p>
+        </div>
+        <div class="upload__grid">
+          <form class="upload__form">
+            <label>Title<input type="text" placeholder="Enter script title" /></label>
+            <label>Description<textarea placeholder="Describe your script"></textarea></label>
+            <label>Game Link<input type="url" placeholder="https://" /></label>
+            <label>Tags<input type="text" placeholder="tycoon, cinematic, ai" /></label>
+            <label>Price<input type="number" placeholder="0" min="0" /></label>
+            <div class="toggle-row">
+              <label class="toggle">
+                <input type="checkbox" />
+                <span>Has Key System</span>
+              </label>
+              <label class="toggle">
+                <input type="checkbox" checked />
+                <span>Mobile Compatible</span>
+              </label>
+              <label class="toggle">
+                <input type="checkbox" checked />
+                <span>Open Source</span>
+              </label>
+            </div>
+            <div class="trust-score">
+              <span>Trust Score</span>
+              <div class="trust-score__bar">
+                <div class="trust-score__value" style="width: 72%"></div>
+              </div>
+              <span class="trust-score__label">72 · Safe with minor warnings</span>
+            </div>
+            <button type="button" class="upload__submit">Upload Script</button>
+          </form>
+          <div class="upload__editor">
+            <header>
+              <span>Monaco Preview</span>
+              <div class="editor__status">
+                <span>Lua · Dark</span>
+                <span class="status-dot"></span>
+                <span>Live Validation</span>
+              </div>
+            </header>
+            <pre><code>--[[ Nebula Forge Build Toolkit ]]--
+local module = {}
+
+local RunService = game:GetService("RunService")
+local HttpService = game:GetService("HttpService")
+
+module.GridSize = 4
+module.AllowedInstances = {
+  "Part",
+  "MeshPart",
+  "Model"
+}
+
+function module:SnapToGrid(position)
+  local snapped = Vector3.new(
+    math.floor(position.X / self.GridSize + 0.5) * self.GridSize,
+    math.floor(position.Y / self.GridSize + 0.5) * self.GridSize,
+    math.floor(position.Z / self.GridSize + 0.5) * self.GridSize
+  )
+  return snapped
+end
+
+return module</code></pre>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <nav class="neo-dock" aria-label="Primary navigation">
+      <div class="neo-dock__glow"></div>
+      <button class="neo-dock__orb" aria-label="Open command palette">
+        <span>⌘</span>
+      </button>
+      <ul class="neo-dock__items">
+        <li data-page="home"><a href="index.html">🏠 Home</a></li>
+        <li class="active" data-page="upload"><a href="upload.html">⬆️ Upload</a></li>
+        <li data-page="trending"><a href="trending.html">🔥 Trending</a></li>
+        <li data-page="stats"><a href="stats.html">📊 Stats</a></li>
+        <li data-page="rules"><a href="rules.html">⚙️ Rules</a></li>
+        <li data-page="help"><a href="help.html">❓ Help</a></li>
+        <div class="neo-dock__indicator"></div>
+      </ul>
+    </nav>
+
+    <script src="assets/js/app.js" type="module"></script>
+  </body>
+</html>

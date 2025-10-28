@@ -12,7 +12,7 @@
     />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
-  <body>
+  <body data-page="home">
     <div id="startup-sequence" class="startup">
       <div class="startup__particles"></div>
       <div class="startup__overlay"></div>
@@ -68,7 +68,10 @@
           <div class="carousel">
             <div class="carousel__card active">
               <div class="card__glow"></div>
-              <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=600&q=80" alt="Featured script" />
+              <img
+                src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=600&q=80"
+                alt="Featured script"
+              />
               <div class="card__info">
                 <h3>Quantum Dash Obby</h3>
                 <p>by neonflux · 12.4K downloads</p>
@@ -76,7 +79,10 @@
             </div>
             <div class="carousel__card">
               <div class="card__glow"></div>
-              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="Featured script" />
+              <img
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"
+                alt="Featured script"
+              />
               <div class="card__info">
                 <h3>Orbital Defense AI</h3>
                 <p>by stellacode · 9.1K downloads</p>
@@ -84,7 +90,10 @@
             </div>
             <div class="carousel__card">
               <div class="card__glow"></div>
-              <img src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=600&q=80" alt="Featured script" />
+              <img
+                src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=600&q=80"
+                alt="Featured script"
+              />
               <div class="card__info">
                 <h3>Neon Cart Racer</h3>
                 <p>by circuitwave · 8.6K downloads</p>
@@ -172,273 +181,6 @@
           </ul>
         </article>
       </section>
-
-      <section class="upload" id="upload">
-        <div class="section-heading">
-          <h2>Upload · Create &amp; Publish</h2>
-          <p>Studio-grade tools for shipping trustworthy Lua scripts.</p>
-        </div>
-        <div class="upload__grid">
-          <form class="upload__form">
-            <label>Title<input type="text" placeholder="Enter script title" /></label>
-            <label>Description<textarea placeholder="Describe your script"></textarea></label>
-            <label>Game Link<input type="url" placeholder="https://" /></label>
-            <label>Tags<input type="text" placeholder="tycoon, cinematic, ai" /></label>
-            <label>Price<input type="number" placeholder="0" min="0" /></label>
-            <div class="toggle-row">
-              <label class="toggle">
-                <input type="checkbox" />
-                <span>Has Key System</span>
-              </label>
-              <label class="toggle">
-                <input type="checkbox" checked />
-                <span>Mobile Compatible</span>
-              </label>
-              <label class="toggle">
-                <input type="checkbox" checked />
-                <span>Open Source</span>
-              </label>
-            </div>
-            <div class="trust-score">
-              <span>Trust Score</span>
-              <div class="trust-score__bar">
-                <div class="trust-score__value" style="width: 72%"></div>
-              </div>
-              <span class="trust-score__label">72 · Safe with minor warnings</span>
-            </div>
-            <button type="button" class="upload__submit">Upload Script</button>
-          </form>
-          <div class="upload__editor">
-            <header>
-              <span>Monaco Preview</span>
-              <div class="editor__status">
-                <span>Lua · Dark</span>
-                <span class="status-dot"></span>
-                <span>Live Validation</span>
-              </div>
-            </header>
-            <pre><code>--[[ Nebula Forge Build Toolkit ]]--
-local module = {}
-
-local RunService = game:GetService("RunService")
-local HttpService = game:GetService("HttpService")
-
-module.GridSize = 4
-module.AllowedInstances = {
-  "Part",
-  "MeshPart",
-  "Model"
-}
-
-function module:SnapToGrid(position)
-  local snapped = Vector3.new(
-    math.floor(position.X / self.GridSize + 0.5) * self.GridSize,
-    math.floor(position.Y / self.GridSize + 0.5) * self.GridSize,
-    math.floor(position.Z / self.GridSize + 0.5) * self.GridSize
-  )
-  return snapped
-end
-
-return module</code></pre>
-          </div>
-        </div>
-      </section>
-
-      <section class="trending" id="trending">
-        <div class="section-heading">
-          <h2>Trending · What&apos;s Hot</h2>
-          <div class="toggle-tabs">
-            <button class="active">Daily</button>
-            <button>Weekly</button>
-            <button>All-Time</button>
-          </div>
-        </div>
-        <div class="leaderboard">
-          <div class="leaderboard__item first">
-            <span class="rank">#1</span>
-            <div>
-              <p>Quantum Dash Obby</p>
-              <small>by neonflux · Trust 98</small>
-            </div>
-          </div>
-          <div class="leaderboard__item second">
-            <span class="rank">#2</span>
-            <div>
-              <p>Orbital Defense AI</p>
-              <small>by stellacode · Trust 96</small>
-            </div>
-          </div>
-          <div class="leaderboard__item third">
-            <span class="rank">#3</span>
-            <div>
-              <p>Luminous Trail Racer</p>
-              <small>by circuitwave · Trust 95</small>
-            </div>
-          </div>
-        </div>
-        <div class="trending__grid">
-          <article class="script-card">
-            <div class="script-card__thumb"></div>
-            <h3>Ion Drift Racing</h3>
-            <p class="script-card__author">by synthbolt</p>
-            <ul class="script-card__meta">
-              <li>42K views</li>
-              <li>18K likes</li>
-              <li>11K downloads</li>
-            </ul>
-            <div class="trust-bar"><span style="width: 94%"></span></div>
-          </article>
-          <article class="script-card">
-            <div class="script-card__thumb"></div>
-            <h3>Celestial Skybox Pack</h3>
-            <p class="script-card__author">by voxelverse</p>
-            <ul class="script-card__meta">
-              <li>36K views</li>
-              <li>15K likes</li>
-              <li>9K downloads</li>
-            </ul>
-            <div class="trust-bar"><span style="width: 90%"></span></div>
-          </article>
-          <article class="script-card">
-            <div class="script-card__thumb"></div>
-            <h3>Pulse City Lighting</h3>
-            <p class="script-card__author">by lumenlabs</p>
-            <ul class="script-card__meta">
-              <li>31K views</li>
-              <li>14K likes</li>
-              <li>8K downloads</li>
-            </ul>
-            <div class="trust-bar"><span style="width: 88%"></span></div>
-          </article>
-          <article class="script-card">
-            <div class="script-card__thumb"></div>
-            <h3>Atlas Pathfinding Core</h3>
-            <p class="script-card__author">by gridmind</p>
-            <ul class="script-card__meta">
-              <li>28K views</li>
-              <li>13K likes</li>
-              <li>7K downloads</li>
-            </ul>
-            <div class="trust-bar"><span style="width: 87%"></span></div>
-          </article>
-        </div>
-      </section>
-
-      <section class="stats" id="stats">
-        <div class="section-heading">
-          <h2>Stats · Live Analytics</h2>
-        </div>
-        <div class="stats__grid">
-          <article class="stats-card">
-            <header>Total Uploads</header>
-            <div class="stats-card__value" data-anim-number="120,245"></div>
-            <footer>Daily · Weekly · Monthly</footer>
-          </article>
-          <article class="stats-card">
-            <header>Active Users Now</header>
-            <div class="stats-card__value" data-anim-number="2,341"></div>
-            <footer>Updating live</footer>
-          </article>
-          <article class="stats-card">
-            <header>Top Tags</header>
-            <div class="stats-card__chart">
-              <div class="bar" data-label="Simulation" style="--value: 85"></div>
-              <div class="bar" data-label="FPS" style="--value: 62"></div>
-              <div class="bar" data-label="Adventure" style="--value: 57"></div>
-              <div class="bar" data-label="Roleplay" style="--value: 44"></div>
-              <div class="bar" data-label="Tycoon" style="--value: 38"></div>
-            </div>
-          </article>
-          <article class="stats-card">
-            <header>Scripts Verified Over Time</header>
-            <canvas id="verificationChart" width="280" height="160" role="img" aria-label="Verification chart"></canvas>
-          </article>
-          <article class="stats-card stats-card--feed">
-            <header>Live Uploads</header>
-            <ul class="live-feed">
-              <li><span class="pulse"></span> Nova Rail Tycoon pushed update</li>
-              <li><span class="pulse"></span> Flux Arena Combat patch deployed</li>
-              <li><span class="pulse"></span> Solstice Terrain Pack verified</li>
-              <li><span class="pulse"></span> Quantum Dash Obby reached 25K likes</li>
-              <li><span class="pulse"></span> Atlas Pathfinding Core audited</li>
-            </ul>
-          </article>
-          <article class="stats-card stats-card--map">
-            <header>Active Regions</header>
-            <div class="globe-placeholder">Live world map streaming</div>
-          </article>
-        </div>
-      </section>
-
-      <section class="rules" id="rules">
-        <div class="section-heading">
-          <h2>Rules · Community Guidelines</h2>
-        </div>
-        <div class="rules__grid">
-          <article class="rule-card">
-            <header>🧭 User Conduct</header>
-            <p>Collaborate respectfully, cite sources, and champion inclusive creation.</p>
-          </article>
-          <article class="rule-card">
-            <header>🛠️ Upload Policy</header>
-            <p>Share original code, disclose dependencies, and avoid malicious APIs.</p>
-          </article>
-          <article class="rule-card">
-            <header>🔐 Security</header>
-            <p>Scripts run sandboxed checks; violations trigger automatic audits.</p>
-          </article>
-          <article class="rule-card">
-            <header>💠 Monetization</header>
-            <p>Paid scripts require transparent pricing and ongoing support plans.</p>
-          </article>
-          <article class="rule-card">
-            <header>🚨 Reporting</header>
-            <p>Flag issues through the command palette; moderation responds within 24h.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="help" id="help">
-        <div class="section-heading">
-          <h2>Help · Knowledge Hub</h2>
-        </div>
-        <div class="help__layout">
-          <aside class="help__tabs">
-            <button class="active" data-help="getting-started">Getting Started</button>
-            <button data-help="using-code-commons">Using Code Commons</button>
-            <button data-help="trust-security">Trust &amp; Security</button>
-            <button data-help="ai-assistant">AI Assistant</button>
-            <button data-help="faq">FAQ &amp; Troubleshooting</button>
-            <button data-help="contact">Contact &amp; Feedback</button>
-          </aside>
-          <div class="help__content">
-            <div class="help-panel active" id="getting-started">
-              <h3>Welcome to the creator grid</h3>
-              <p>Customize your workspace, connect your Roblox identity, and start sharing scripts.</p>
-            </div>
-            <div class="help-panel" id="using-code-commons">
-              <h3>Navigation tips</h3>
-              <p>Use the neo dock or command palette (Ctrl + K) to move instantly between sections.</p>
-            </div>
-            <div class="help-panel" id="trust-security">
-              <h3>Trust Score System</h3>
-              <p>Uploads pass static checks and community audits to generate a transparent trust score.</p>
-            </div>
-            <div class="help-panel" id="ai-assistant">
-              <h3>AI Linting</h3>
-              <p>Receive inline suggestions on performance, security, and documentation best practices.</p>
-            </div>
-            <div class="help-panel" id="faq">
-              <h3>Popular questions</h3>
-              <p>Resolve key system errors, payment issues, and publish flow hiccups.</p>
-            </div>
-            <div class="help-panel" id="contact">
-              <h3>Contact</h3>
-              <p>Join the Discord or submit issues on GitHub to influence the roadmap.</p>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
 
     <nav class="neo-dock" aria-label="Primary navigation">
@@ -447,12 +189,12 @@ return module</code></pre>
         <span>⌘</span>
       </button>
       <ul class="neo-dock__items">
-        <li class="active" data-target="home">🏠 Home</li>
-        <li data-target="upload">⬆️ Upload</li>
-        <li data-target="trending">🔥 Trending</li>
-        <li data-target="stats">📊 Stats</li>
-        <li data-target="rules">⚙️ Rules</li>
-        <li data-target="help">❓ Help</li>
+        <li class="active" data-page="home"><a href="index.html">🏠 Home</a></li>
+        <li data-page="upload"><a href="upload.html">⬆️ Upload</a></li>
+        <li data-page="trending"><a href="trending.html">🔥 Trending</a></li>
+        <li data-page="stats"><a href="stats.html">📊 Stats</a></li>
+        <li data-page="rules"><a href="rules.html">⚙️ Rules</a></li>
+        <li data-page="help"><a href="help.html">❓ Help</a></li>
         <div class="neo-dock__indicator"></div>
       </ul>
     </nav>

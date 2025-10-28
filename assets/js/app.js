@@ -1,18 +1,17 @@
-const startup = document.getElementById("startup-sequence");
-const skipButton = startup.querySelector(".startup__skip");
-const terminalLine = startup.querySelector(".terminal-line");
 const app = document.getElementById("app");
+const startup = document.getElementById("startup-sequence");
+const skipButton = startup ? startup.querySelector(".startup__skip") : null;
+const terminalLine = startup ? startup.querySelector(".terminal-line") : null;
 const commandPalette = document.getElementById("command-palette");
-const commandResults = commandPalette.querySelector(".command-palette__results");
-const commandInput = commandPalette.querySelector("input");
-const closeCommand = commandPalette.querySelector(".command-palette__close");
-const neoDock = document.querySelector(".neo-dock");
+const commandResults = commandPalette ? commandPalette.querySelector(".command-palette__results") : null;
+const commandInput = commandPalette ? commandPalette.querySelector("input") : null;
+const closeCommand = commandPalette ? commandPalette.querySelector(".command-palette__close") : null;
 const neoItems = Array.from(document.querySelectorAll(".neo-dock__items li"));
 const indicator = document.querySelector(".neo-dock__indicator");
 const orbButton = document.querySelector(".neo-dock__orb");
-const sections = Array.from(document.querySelectorAll("main section, header.hero"));
 const helpTabs = Array.from(document.querySelectorAll(".help__tabs button"));
 const helpPanels = Array.from(document.querySelectorAll(".help-panel"));
+const page = document.body.dataset.page || "home";
 
 const terminalLines = [
   "> initializing environment...",
@@ -22,20 +21,18 @@ const terminalLines = [
 ];
 
 const commands = [
-  { label: "Go to Home", target: "home" },
-  { label: "Go to Upload", target: "upload" },
-  { label: "Go to Trending", target: "trending" },
-  { label: "Go to Stats", target: "stats" },
-  { label: "Go to Rules", target: "rules" },
-  { label: "Go to Help", target: "help" },
-  { label: "Open Upload Form", target: "upload" },
-  { label: "Check Live Analytics", target: "stats" },
-  { label: "Review Community Guidelines", target: "rules" }
+  { label: "Go to Home", url: "index.html" },
+  { label: "Open Upload Studio", url: "upload.html" },
+  { label: "Browse Trending Scripts", url: "trending.html" },
+  { label: "Open Live Analytics", url: "stats.html" },
+  { label: "Review Community Rules", url: "rules.html" },
+  { label: "Get Help & Support", url: "help.html" }
 ];
 
 let introComplete = false;
 
 function typeTerminalLines(lines, index = 0) {
+  if (!terminalLine) return;
   if (index >= lines.length) {
     setTimeout(() => completeStartup(), 600);
     return;
@@ -56,24 +53,33 @@ function typeTerminalLines(lines, index = 0) {
 function completeStartup() {
   if (introComplete) return;
   introComplete = true;
+
+  if (!startup) {
+    onAppReady();
+    return;
+  }
+
   startup.classList.add("hidden");
   setTimeout(() => {
     startup.remove();
-    revealApp();
+    onAppReady();
   }, 750);
 }
 
-function revealApp() {
+function onAppReady() {
+  if (!app || app.classList.contains("app--ready")) return;
   app.hidden = false;
-  app.classList.add("app--visible");
+  app.classList.add("app--visible", "app--ready");
   spawnParticles();
-  animateNumbers();
   initializeIndicator();
+  runPageSpecificInit();
 }
 
 function spawnParticles() {
   const field = document.querySelector(".particle-field");
-  if (!field) return;
+  if (!field || field.dataset.initialized) return;
+  field.dataset.initialized = "true";
+
   const total = 80;
   for (let i = 0; i < total; i++) {
     const span = document.createElement("span");
@@ -83,6 +89,7 @@ function spawnParticles() {
     span.style.animationDuration = 8 + Math.random() * 12 + "s";
     field.appendChild(span);
   }
+
   document.addEventListener("pointermove", (event) => {
     const rect = field.getBoundingClientRect();
     const x = (event.clientX - rect.left) / rect.width;
@@ -100,6 +107,8 @@ function animateNumbers() {
       verified: 7421
     }[el.dataset.stat];
 
+    if (!max) return;
+
     let current = 0;
     const increment = max / 60;
     const interval = setInterval(() => {
@@ -115,6 +124,8 @@ function animateNumbers() {
   const animatedNumbers = document.querySelectorAll("[data-anim-number]");
   animatedNumbers.forEach((el) => {
     const target = parseInt(el.dataset.animNumber.replace(/,/g, ""), 10);
+    if (Number.isNaN(target)) return;
+
     let current = 0;
     const increment = target / 80;
     const interval = setInterval(() => {
@@ -129,31 +140,39 @@ function animateNumbers() {
 }
 
 function initializeIndicator() {
-  const active = document.querySelector(".neo-dock__items li.active");
-  if (!active || !indicator) return;
+  if (!indicator || !neoItems.length) return;
+  const active =
+    neoItems.find((item) => item.dataset.page === page) || neoItems[0];
+
+  if (!active) return;
+
+  neoItems.forEach((item) => {
+    item.classList.toggle("active", item === active);
+  });
+
   const { offsetWidth, offsetLeft } = active;
   indicator.style.width = `${offsetWidth}px`;
   indicator.style.transform = `translateX(${offsetLeft}px)`;
 }
 
-function updateIndicator(target) {
-  const { offsetWidth, offsetLeft } = target;
-  indicator.style.width = `${offsetWidth}px`;
-  indicator.style.transform = `translateX(${offsetLeft}px)`;
-}
-
-function scrollToSection(id) {
-  const element = document.getElementById(id);
-  if (!element) return;
-  element.scrollIntoView({ behavior: "smooth", block: "start" });
-}
-
-function setActiveNav(target) {
-  neoItems.forEach((item) => item.classList.toggle("active", item === target));
-  updateIndicator(target);
+function renderCommandResults(list) {
+  if (!commandResults) return;
+  commandResults.innerHTML = "";
+  list.forEach((cmd) => {
+    const li = document.createElement("li");
+    li.textContent = cmd.label;
+    li.addEventListener("click", () => {
+      closeCommandPalette();
+      if (cmd.url) {
+        window.location.href = cmd.url;
+      }
+    });
+    commandResults.appendChild(li);
+  });
 }
 
 function openCommandPalette() {
+  if (!commandPalette || !commandInput) return;
   commandPalette.setAttribute("aria-hidden", "false");
   commandInput.value = "";
   renderCommandResults(commands);
@@ -161,34 +180,24 @@ function openCommandPalette() {
 }
 
 function closeCommandPalette() {
+  if (!commandPalette) return;
   commandPalette.setAttribute("aria-hidden", "true");
 }
 
-function renderCommandResults(list) {
-  commandResults.innerHTML = "";
-  list.forEach((cmd) => {
-    const li = document.createElement("li");
-    li.textContent = cmd.label;
-    li.addEventListener("click", () => {
-      closeCommandPalette();
-      scrollToSection(cmd.target);
-      const navItem = neoItems.find((item) => item.dataset.target === cmd.target);
-      if (navItem) {
-        setActiveNav(navItem);
-      }
-    });
-    commandResults.appendChild(li);
-  });
-}
-
 function initCommandPalette() {
+  if (!commandPalette || !commandInput || !commandResults) return;
+
   commandInput.addEventListener("input", (event) => {
     const value = event.target.value.toLowerCase();
-    const filtered = commands.filter((cmd) => cmd.label.toLowerCase().includes(value));
+    const filtered = commands.filter((cmd) =>
+      cmd.label.toLowerCase().includes(value)
+    );
     renderCommandResults(filtered);
   });
 
-  closeCommand.addEventListener("click", closeCommandPalette);
+  if (closeCommand) {
+    closeCommand.addEventListener("click", closeCommandPalette);
+  }
 
   document.addEventListener("keydown", (event) => {
     if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
@@ -205,46 +214,67 @@ function initCommandPalette() {
     }
   });
 
-  orbButton.addEventListener("click", () => {
-    if (window.matchMedia("(max-width: 768px)").matches) {
-      commandPalette.setAttribute(
-        "aria-hidden",
-        commandPalette.getAttribute("aria-hidden") === "false" ? "true" : "false"
-      );
-      if (commandPalette.getAttribute("aria-hidden") === "false") {
-        renderCommandResults(commands);
-        setTimeout(() => commandInput.focus(), 50);
+  if (orbButton) {
+    orbButton.addEventListener("click", () => {
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        const isOpen = commandPalette.getAttribute("aria-hidden") === "false";
+        commandPalette.setAttribute("aria-hidden", isOpen ? "true" : "false");
+        if (!isOpen) {
+          renderCommandResults(commands);
+          setTimeout(() => commandInput.focus(), 50);
+        }
+      } else {
+        openCommandPalette();
       }
-    } else {
-      openCommandPalette();
-    }
-  });
+    });
+  }
 }
 
 function initHelpPanels() {
+  if (!helpTabs.length || !helpPanels.length) return;
   helpTabs.forEach((tab) => {
     tab.addEventListener("click", () => {
       helpTabs.forEach((btn) => btn.classList.toggle("active", btn === tab));
-      helpPanels.forEach((panel) => panel.classList.toggle("active", panel.id === tab.dataset.help));
+      helpPanels.forEach((panel) =>
+        panel.classList.toggle("active", panel.id === tab.dataset.help)
+      );
     });
   });
 }
 
 function initNav() {
+  if (!neoItems.length) return;
   neoItems.forEach((item) => {
-    item.addEventListener("click", () => {
-      scrollToSection(item.dataset.target);
-      setActiveNav(item);
+    item.addEventListener("click", (event) => {
+      const link = item.querySelector("a");
+      if (!link) return;
+
       const ripple = document.createElement("span");
       ripple.className = "neo-dock__ripple";
       item.appendChild(ripple);
       setTimeout(() => ripple.remove(), 600);
+
+      if (
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey ||
+        event.button !== 0
+      ) {
+        return;
+      }
+
+      event.preventDefault();
+      setTimeout(() => {
+        window.location.href = link.href;
+      }, 140);
     });
   });
 }
 
 function initCarousel() {
   const cards = Array.from(document.querySelectorAll(".carousel__card"));
+  if (!cards.length) return;
   let index = 0;
   setInterval(() => {
     cards[index].classList.remove("active");
@@ -303,26 +333,28 @@ function drawChart() {
   });
 }
 
-function initStickyObserver() {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          const navItem = neoItems.find((item) => item.dataset.target === id);
-          if (navItem) {
-            setActiveNav(navItem);
-          }
-        }
-      });
-    },
-    { threshold: 0.35 }
-  );
+function runPageSpecificInit() {
+  if (page === "home") {
+    animateNumbers();
+    initCarousel();
+  }
 
-  sections.forEach((section) => observer.observe(section));
+  if (page === "stats") {
+    animateNumbers();
+    drawChart();
+  }
+
+  if (page === "help") {
+    initHelpPanels();
+  }
 }
 
 function initStartup() {
+  if (!startup || !skipButton || !terminalLine) {
+    onAppReady();
+    return;
+  }
+
   setTimeout(() => skipButton.classList.add("visible"), 2000);
   skipButton.addEventListener("click", completeStartup);
   typeTerminalLines(terminalLines);
@@ -333,15 +365,7 @@ function initStartup() {
   }, 5600);
 }
 
-function initApp() {
-  initStartup();
-  initCommandPalette();
-  initHelpPanels();
-  initNav();
-  initCarousel();
-  drawChart();
-  initStickyObserver();
-  window.addEventListener("resize", initializeIndicator);
-}
-
-initApp();
+initStartup();
+initCommandPalette();
+initNav();
+window.addEventListener("resize", initializeIndicator);
