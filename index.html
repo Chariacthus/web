@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Commons · Futuristic Lua Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body data-page="home">
+    <div id="startup-sequence" class="startup">
+      <div class="startup__particles"></div>
+      <div class="startup__overlay"></div>
+      <div class="startup__content">
+        <h1 class="startup__title">CODE COMMONS</h1>
+        <div class="startup__terminal" aria-live="polite">
+          <span class="terminal-line"></span>
+        </div>
+        <div class="startup__progress">
+          <div class="startup__progress-bar"></div>
+        </div>
+        <button class="startup__skip" aria-label="Skip intro">Skip</button>
+      </div>
+    </div>
+
+    <div id="command-palette" class="command-palette" aria-hidden="true">
+      <div class="command-palette__dialog" role="dialog" aria-modal="true">
+        <header>
+          <h2>Command Palette</h2>
+          <p>Search across scripts, creators, and pages</p>
+        </header>
+        <input type="text" placeholder="Type a command or search…" />
+        <ul class="command-palette__results"></ul>
+        <button class="command-palette__close" aria-label="Close command palette">
+          Close
+        </button>
+      </div>
+    </div>
+
+    <main id="app" class="app" hidden>
+      <div class="particle-field" aria-hidden="true"></div>
+      <header class="hero" id="home">
+        <div class="hero__content">
+          <p class="hero__kicker">Code Commons</p>
+          <h1 class="hero__title" data-typing>
+            Discover • Create • Share Lua Scripts — Made Simple.
+          </h1>
+          <div class="hero__search">
+            <div class="search-input">
+              <span class="search-icon">⌘</span>
+              <input type="text" placeholder="Search scripts, creators, tags" />
+            </div>
+            <div class="search-tags">
+              <button>Universal</button>
+              <button>No Key</button>
+              <button>Mobile</button>
+              <button>Paid</button>
+              <button>Open Source</button>
+            </div>
+          </div>
+        </div>
+        <div class="hero__carousel">
+          <div class="carousel">
+            <div class="carousel__card active">
+              <div class="card__glow"></div>
+              <img
+                src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=600&q=80"
+                alt="Featured script"
+              />
+              <div class="card__info">
+                <h3>Quantum Dash Obby</h3>
+                <p>by neonflux · 12.4K downloads</p>
+              </div>
+            </div>
+            <div class="carousel__card">
+              <div class="card__glow"></div>
+              <img
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"
+                alt="Featured script"
+              />
+              <div class="card__info">
+                <h3>Orbital Defense AI</h3>
+                <p>by stellacode · 9.1K downloads</p>
+              </div>
+            </div>
+            <div class="carousel__card">
+              <div class="card__glow"></div>
+              <img
+                src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=600&q=80"
+                alt="Featured script"
+              />
+              <div class="card__info">
+                <h3>Neon Cart Racer</h3>
+                <p>by circuitwave · 8.6K downloads</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="panels">
+        <article class="panel panel--featured" aria-labelledby="script-of-day">
+          <h2 id="script-of-day">Script of the Day</h2>
+          <div class="panel__body">
+            <div class="panel__meta">
+              <span class="tag">Roblox Studio</span>
+              <span class="tag">Automation</span>
+            </div>
+            <p class="panel__title">Nebula Forge Build Toolkit</p>
+            <div class="panel__stats">
+              <span>by astrobyte</span>
+              <span>Trust 96</span>
+              <span>24.8K installs</span>
+            </div>
+            <button class="panel__cta">View Script</button>
+          </div>
+        </article>
+        <article class="panel panel--scroller">
+          <header>
+            <h2>New Uploads</h2>
+            <span class="panel__ticker">Auto-syncing</span>
+          </header>
+          <div class="panel__scroll">
+            <div class="scroll-item">Crystal Combat AI · 3m ago</div>
+            <div class="scroll-item">Vanta Lighting System · 7m ago</div>
+            <div class="scroll-item">Lunar Rail Tycoon · 12m ago</div>
+            <div class="scroll-item">Aria NPC Dialogue · 17m ago</div>
+            <div class="scroll-item">Pulse City Racing · 21m ago</div>
+          </div>
+        </article>
+        <article class="panel panel--creators">
+          <header>
+            <h2>Top Creators</h2>
+          </header>
+          <div class="creator-list">
+            <div class="creator">
+              <div class="creator__avatar">NF</div>
+              <div>
+                <p class="creator__name">neonflux</p>
+                <p class="creator__meta">Level 42 · 1.2M XP</p>
+              </div>
+            </div>
+            <div class="creator">
+              <div class="creator__avatar">SC</div>
+              <div>
+                <p class="creator__name">stellacode</p>
+                <p class="creator__meta">Level 39 · 1.0M XP</p>
+              </div>
+            </div>
+            <div class="creator">
+              <div class="creator__avatar">CW</div>
+              <div>
+                <p class="creator__name">circuitwave</p>
+                <p class="creator__meta">Level 37 · 960K XP</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="panel panel--stats">
+          <header>
+            <h2>Live Stats</h2>
+          </header>
+          <ul class="stats-bar">
+            <li>
+              <span class="label">Scripts uploaded today</span>
+              <span class="value" data-stat="uploads">0</span>
+            </li>
+            <li>
+              <span class="label">Users online</span>
+              <span class="value" data-stat="online">0</span>
+            </li>
+            <li>
+              <span class="label">Total verified</span>
+              <span class="value" data-stat="verified">0</span>
+            </li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <nav class="neo-dock" aria-label="Primary navigation">
+      <div class="neo-dock__glow"></div>
+      <button class="neo-dock__orb" aria-label="Open command palette">
+        <span>⌘</span>
+      </button>
+      <ul class="neo-dock__items">
+        <li class="active" data-page="home"><a href="index.html">🏠 Home</a></li>
+        <li data-page="upload"><a href="upload.html">⬆️ Upload</a></li>
+        <li data-page="trending"><a href="trending.html">🔥 Trending</a></li>
+        <li data-page="stats"><a href="stats.html">📊 Stats</a></li>
+        <li data-page="rules"><a href="rules.html">⚙️ Rules</a></li>
+        <li data-page="help"><a href="help.html">❓ Help</a></li>
+        <div class="neo-dock__indicator"></div>
+      </ul>
+    </nav>
+
+    <script src="assets/js/app.js" type="module"></script>
+  </body>
+</html>

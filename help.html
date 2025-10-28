@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Help · Code Commons</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body data-page="help">
+    <div id="command-palette" class="command-palette" aria-hidden="true">
+      <div class="command-palette__dialog" role="dialog" aria-modal="true">
+        <header>
+          <h2>Command Palette</h2>
+          <p>Search across scripts, creators, and pages</p>
+        </header>
+        <input type="text" placeholder="Type a command or search…" />
+        <ul class="command-palette__results"></ul>
+        <button class="command-palette__close" aria-label="Close command palette">
+          Close
+        </button>
+      </div>
+    </div>
+
+    <main id="app" class="app">
+      <div class="particle-field" aria-hidden="true"></div>
+      <section class="help" id="help">
+        <div class="section-heading">
+          <h2>Help · Knowledge Hub</h2>
+        </div>
+        <div class="help__layout">
+          <aside class="help__tabs">
+            <button class="active" data-help="getting-started">Getting Started</button>
+            <button data-help="using-code-commons">Using Code Commons</button>
+            <button data-help="trust-security">Trust &amp; Security</button>
+            <button data-help="ai-assistant">AI Assistant</button>
+            <button data-help="faq">FAQ &amp; Troubleshooting</button>
+            <button data-help="contact">Contact &amp; Feedback</button>
+          </aside>
+          <div class="help__content">
+            <div class="help-panel active" id="getting-started">
+              <h3>Welcome to the creator grid</h3>
+              <p>Customize your workspace, connect your Roblox identity, and start sharing scripts.</p>
+            </div>
+            <div class="help-panel" id="using-code-commons">
+              <h3>Navigation tips</h3>
+              <p>Use the neo dock or command palette (Ctrl + K) to move instantly between sections.</p>
+            </div>
+            <div class="help-panel" id="trust-security">
+              <h3>Trust Score System</h3>
+              <p>Uploads pass static checks and community audits to generate a transparent trust score.</p>
+            </div>
+            <div class="help-panel" id="ai-assistant">
+              <h3>AI Linting</h3>
+              <p>Receive inline suggestions on performance, security, and documentation best practices.</p>
+            </div>
+            <div class="help-panel" id="faq">
+              <h3>Popular questions</h3>
+              <p>Resolve key system errors, payment issues, and publish flow hiccups.</p>
+            </div>
+            <div class="help-panel" id="contact">
+              <h3>Contact</h3>
+              <p>Join the Discord or submit issues on GitHub to influence the roadmap.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <nav class="neo-dock" aria-label="Primary navigation">
+      <div class="neo-dock__glow"></div>
+      <button class="neo-dock__orb" aria-label="Open command palette">
+        <span>⌘</span>
+      </button>
+      <ul class="neo-dock__items">
+        <li data-page="home"><a href="index.html">🏠 Home</a></li>
+        <li data-page="upload"><a href="upload.html">⬆️ Upload</a></li>
+        <li data-page="trending"><a href="trending.html">🔥 Trending</a></li>
+        <li data-page="stats"><a href="stats.html">📊 Stats</a></li>
+        <li data-page="rules"><a href="rules.html">⚙️ Rules</a></li>
+        <li class="active" data-page="help"><a href="help.html">❓ Help</a></li>
+        <div class="neo-dock__indicator"></div>
+      </ul>
+    </nav>
+
+    <script src="assets/js/app.js" type="module"></script>
+  </body>
+</html>

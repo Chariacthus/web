@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stats · Code Commons</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body data-page="stats">
+    <div id="command-palette" class="command-palette" aria-hidden="true">
+      <div class="command-palette__dialog" role="dialog" aria-modal="true">
+        <header>
+          <h2>Command Palette</h2>
+          <p>Search across scripts, creators, and pages</p>
+        </header>
+        <input type="text" placeholder="Type a command or search…" />
+        <ul class="command-palette__results"></ul>
+        <button class="command-palette__close" aria-label="Close command palette">
+          Close
+        </button>
+      </div>
+    </div>
+
+    <main id="app" class="app">
+      <div class="particle-field" aria-hidden="true"></div>
+      <section class="stats" id="stats">
+        <div class="section-heading">
+          <h2>Stats · Live Analytics</h2>
+        </div>
+        <div class="stats__grid">
+          <article class="stats-card">
+            <header>Total Uploads</header>
+            <div class="stats-card__value" data-anim-number="120,245"></div>
+            <footer>Daily · Weekly · Monthly</footer>
+          </article>
+          <article class="stats-card">
+            <header>Active Users Now</header>
+            <div class="stats-card__value" data-anim-number="2,341"></div>
+            <footer>Updating live</footer>
+          </article>
+          <article class="stats-card">
+            <header>Top Tags</header>
+            <div class="stats-card__chart">
+              <div class="bar" data-label="Simulation" style="--value: 85"></div>
+              <div class="bar" data-label="FPS" style="--value: 62"></div>
+              <div class="bar" data-label="Adventure" style="--value: 57"></div>
+              <div class="bar" data-label="Roleplay" style="--value: 44"></div>
+              <div class="bar" data-label="Tycoon" style="--value: 38"></div>
+            </div>
+          </article>
+          <article class="stats-card">
+            <header>Scripts Verified Over Time</header>
+            <canvas id="verificationChart" width="280" height="160" role="img" aria-label="Verification chart"></canvas>
+          </article>
+          <article class="stats-card stats-card--feed">
+            <header>Live Uploads</header>
+            <ul class="live-feed">
+              <li><span class="pulse"></span> Nova Rail Tycoon pushed update</li>
+              <li><span class="pulse"></span> Flux Arena Combat patch deployed</li>
+              <li><span class="pulse"></span> Solstice Terrain Pack verified</li>
+              <li><span class="pulse"></span> Quantum Dash Obby reached 25K likes</li>
+              <li><span class="pulse"></span> Atlas Pathfinding Core audited</li>
+            </ul>
+          </article>
+          <article class="stats-card stats-card--map">
+            <header>Active Regions</header>
+            <div class="globe-placeholder">Live world map streaming</div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <nav class="neo-dock" aria-label="Primary navigation">
+      <div class="neo-dock__glow"></div>
+      <button class="neo-dock__orb" aria-label="Open command palette">
+        <span>⌘</span>
+      </button>
+      <ul class="neo-dock__items">
+        <li data-page="home"><a href="index.html">🏠 Home</a></li>
+        <li data-page="upload"><a href="upload.html">⬆️ Upload</a></li>
+        <li data-page="trending"><a href="trending.html">🔥 Trending</a></li>
+        <li class="active" data-page="stats"><a href="stats.html">📊 Stats</a></li>
+        <li data-page="rules"><a href="rules.html">⚙️ Rules</a></li>
+        <li data-page="help"><a href="help.html">❓ Help</a></li>
+        <div class="neo-dock__indicator"></div>
+      </ul>
+    </nav>
+
+    <script src="assets/js/app.js" type="module"></script>
+  </body>
+</html>

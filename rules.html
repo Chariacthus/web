@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rules · Code Commons</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body data-page="rules">
+    <div id="command-palette" class="command-palette" aria-hidden="true">
+      <div class="command-palette__dialog" role="dialog" aria-modal="true">
+        <header>
+          <h2>Command Palette</h2>
+          <p>Search across scripts, creators, and pages</p>
+        </header>
+        <input type="text" placeholder="Type a command or search…" />
+        <ul class="command-palette__results"></ul>
+        <button class="command-palette__close" aria-label="Close command palette">
+          Close
+        </button>
+      </div>
+    </div>
+
+    <main id="app" class="app">
+      <div class="particle-field" aria-hidden="true"></div>
+      <section class="rules" id="rules">
+        <div class="section-heading">
+          <h2>Rules · Community Guidelines</h2>
+        </div>
+        <div class="rules__grid">
+          <article class="rule-card">
+            <header>🧭 User Conduct</header>
+            <p>Collaborate respectfully, cite sources, and champion inclusive creation.</p>
+          </article>
+          <article class="rule-card">
+            <header>🛠️ Upload Policy</header>
+            <p>Share original code, disclose dependencies, and avoid malicious APIs.</p>
+          </article>
+          <article class="rule-card">
+            <header>🔐 Security</header>
+            <p>Scripts run sandboxed checks; violations trigger automatic audits.</p>
+          </article>
+          <article class="rule-card">
+            <header>💠 Monetization</header>
+            <p>Paid scripts require transparent pricing and ongoing support plans.</p>
+          </article>
+          <article class="rule-card">
+            <header>🚨 Reporting</header>
+            <p>Flag issues through the command palette; moderation responds within 24h.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <nav class="neo-dock" aria-label="Primary navigation">
+      <div class="neo-dock__glow"></div>
+      <button class="neo-dock__orb" aria-label="Open command palette">
+        <span>⌘</span>
+      </button>
+      <ul class="neo-dock__items">
+        <li data-page="home"><a href="index.html">🏠 Home</a></li>
+        <li data-page="upload"><a href="upload.html">⬆️ Upload</a></li>
+        <li data-page="trending"><a href="trending.html">🔥 Trending</a></li>
+        <li data-page="stats"><a href="stats.html">📊 Stats</a></li>
+        <li class="active" data-page="rules"><a href="rules.html">⚙️ Rules</a></li>
+        <li data-page="help"><a href="help.html">❓ Help</a></li>
+        <div class="neo-dock__indicator"></div>
+      </ul>
+    </nav>
+
+    <script src="assets/js/app.js" type="module"></script>
+  </body>
+</html>
